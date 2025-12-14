@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenida</title>
+
+    <style>
+        body {
+            background: url("../img/fondos/pagina_principal.png") no-repeat center center;
+            background-size: cover;
+            color: white;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .linea {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+
+        .letra {
+            font-size: 24px;
+            font-weight: bold;
+            font-family: monospace;
+            margin: 0 1px;
+        }
+
+        /* Botón Aceptar */
+        #btnAceptar {
+            background: #00a2ff;
+            border: none;
+            padding: 12px 25px;
+            font-size: 20px;
+            margin-top: 30px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        #btnAceptar:hover {
+            background: #0080cc;
+        }
+    </style>
+
+    <script>
+        // Colores fijos por letra
+        const coloresPorLetra = {
+            "A": "red",
+            "B": "blue",
+            "C": "green",
+            "D": "orange",
+            "E": "purple",
+            "F": "pink",
+            "G": "yellow",
+            "H": "cyan",
+            "I": "magenta",
+            "J": "lime",
+            "K": "brown",
+            "L": "teal",
+            "M": "coral",
+            "N": "violet",
+            "O": "gold",
+            "P": "salmon",
+            "Q": "indigo",
+            "R": "maroon",
+            "S": "turquoise",
+            "T": "olive",
+            "U": "chocolate",
+            "V": "crimson",
+            "W": "darkorange",
+            "X": "darkgreen",
+            "Y": "darkblue",
+            "Z": "deeppink"
+        };
+
+        // FUNCION: Convierte texto a letras coloreadas
+        function textoAImagenes(texto, contenedorId) {
+            const cont = document.getElementById(contenedorId);
+            cont.innerHTML = ""; // limpiar contenido anterior
+
+            for (let letra of texto.toUpperCase()) {
+
+                // Espacios reales
+                if (letra === " ") {
+                    let espacio = document.createElement("div");
+                    espacio.style.width = "16px";
+                    espacio.style.height = "24px";
+                    cont.appendChild(espacio);
+                    continue;
+                }
+
+                // Crear span con letra y color
+                let span = document.createElement("span");
+                span.className = "letra";
+                span.textContent = letra;
+
+                if (coloresPorLetra[letra]) {
+                    span.style.color = coloresPorLetra[letra];
+                } else {
+                    span.style.color = "white"; // letras que no estén en el objeto
+                }
+
+                cont.appendChild(span);
+            }
+        }
+
+        window.onload = () => {
+            textoAImagenes("Bienvenidx a pixelsgame", "v1");
+            textoAImagenes("esta web fue echa", "v2");
+            textoAImagenes("con html fue creada", "v3");
+            textoAImagenes("con el proposito de tener un lugar", "v4");
+            textoAImagenes("donde pueda publicar prototipos o dar adelantos", "v5");
+            textoAImagenes("de proximos videos", "v6");
+
+            // LINEA DE YOUTUBE → TEXTO NORMAL
+            document.getElementById("v7").innerText = "visita https://youtube.com/@holasoyjorgecastro";
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <div id="v1" class="linea"></div>
+    <div id="v2" class="linea"></div>
+    <div id="v3" class="linea"></div>
+    <div id="v4" class="linea"></div>
+    <div id="v5" class="linea"></div>
+    <div id="v6" class="linea"></div>
+
+    <h2>¡Conoce al creador!</h2>
+
+    <div id="v7" class="linea" style="font-size: 22px;"></div>
+    
+    <button id="btnAceptar" onclick="location.href='https://Erixado345.github.io'">
+        Aceptar
+    </button>
+
+</body>
+</html>
